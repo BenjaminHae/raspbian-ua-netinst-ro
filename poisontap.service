@@ -1,0 +1,11 @@
+[Unit]
+Description=Poisontap Service
+After=multi-user.target
+
+[Service]
+Type=idle
+ExecStart=/bin/bash /root/poisontap/pi_startup.sh
+
+[Install]
+WantedBy=multi-user.target
+

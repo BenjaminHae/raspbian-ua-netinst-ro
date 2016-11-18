@@ -1,1 +1,1 @@
-packages=unionfs-fuse,curl,unzip
+packages=unionfs-fuse,curl,unzip,screen

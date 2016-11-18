@@ -23,7 +23,7 @@ chroot /rootfs curl https://github.com/samyk/poisontap/archive/master.zip -o /ro
 chroot /rootfs unzip /root/poisontap.zip -d /root/poisontap
 
 # install boot
-cp /bootfs/poisontap.service /etc/systemd/system/
+cp /bootfs/poisontap.service /rootfs/etc/systemd/system/
 chroot /rootfs systemctl enable /etc/systemd/system/poisontap.service
 
 cp /bootfs/mount_unionfs /rootfs/usr/local/bin/mount_unionfs

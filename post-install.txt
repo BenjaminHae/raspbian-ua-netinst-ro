@@ -16,7 +16,7 @@ chroot /rootfs apt-get -y install unionfs-fuse
 # install node.js
 chroot /rootfs curl -sL https://deb.nodesource.com/setup_7.x | bash
 chroot /rootfs apt-get update
-chroot /rootfs apt-get install nodejs
+chroot /rootfs apt-get -y install nodejs
 
 # get poisontap
 chroot /rootfs curl https://github.com/samyk/poisontap/archive/master.zip -o /root/poisontap.zip
@@ -26,6 +26,12 @@ chroot /rootfs unzip /root/poisontap.zip -d /root/poisontap
 cp /bootfs/poisontap.service /rootfs/etc/systemd/system/
 chroot /rootfs systemctl enable /etc/systemd/system/poisontap.service
 
+# ssh keys
+mkdir -p -m 700 /rootfs/root/.ssh
+cp /bootfs/authorized_keys /rootfs/root/.ssh
+chmod 600 /rootfs/root/.ssh/authorized_keys
+
+# read only
 cp /bootfs/mount_unionfs /rootfs/usr/local/bin/mount_unionfs
 chmod +x /rootfs/usr/local/bin/mount_unionfs
 

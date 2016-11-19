@@ -1,1 +1,2 @@
 packages=unionfs-fuse,curl,unzip,screen
+drivers_to_load=r8152

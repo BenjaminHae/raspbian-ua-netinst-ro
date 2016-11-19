@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 Type=idle
-ExecStart=/bin/bash /root/poisontap/pi_startup.sh
+ExecStart=/bin/bash /var/opt/poisontap/pi_startup.sh
 
 [Install]
 WantedBy=multi-user.target

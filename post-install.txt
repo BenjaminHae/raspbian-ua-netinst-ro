@@ -36,6 +36,10 @@ mkdir -p -m 700 /rootfs/root/.ssh
 cp /bootfs/authorized_keys /rootfs/root/.ssh
 chmod 600 /rootfs/root/.ssh/authorized_keys
 
+# update the pi. Sadly necessaryÖ
+chroot /rootfs apt-get -y install rpi-update
+chroot /rootfs BRANCH=next rpi-update
+
 # read only
 cp /bootfs/mount_unionfs /rootfs/usr/local/bin/mount_unionfs
 chmod +x /rootfs/usr/local/bin/mount_unionfs

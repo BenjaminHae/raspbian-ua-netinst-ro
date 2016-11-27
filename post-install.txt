@@ -28,7 +28,8 @@ cp /rootfs/var/opt/poisontap/dhcpd.conf /rootfs/etc/dhcp/
 echo -e "\nauto usb0\nallow-hotplug usb0\niface usb0 inet static\n\taddress 1.0.0.1\n\tnetmask 0.0.0.0" >> /rootfs/etc/network/interfaces
 echo "dtoverlay=dwc2" >> /rootfs/boot/config.txt
 echo -e "dwc2\ng_ether" >> /rootfs/etc/modules
-echo "/bin/sh /var/opt/poisontap/pi_startup.sh" >> /rootfs/etc/rc.local
+sed -i '/^exit/i \
+/bin/sh /var/opt/poisontap/pi_startup.sh' /rootfs/etc/rc.local
 sed -i "s#/home/pi#/var/opt#g" /rootfs/var/opt/poisontap/pi_startup.sh
 
 # ssh keys

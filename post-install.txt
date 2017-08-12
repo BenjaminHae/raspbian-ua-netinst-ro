@@ -33,6 +33,7 @@ echo -e "dwc2\ng_ether" >> /rootfs/etc/modules
 sed -i '/^exit/i \
 /bin/sh /var/opt/poisontap/prepare_poison.sh' /rootfs/etc/rc.local
 sed -i "s#/home/pi#/var/opt#g" /rootfs/var/opt/poisontap/pi_startup.sh
+sed -i 's/displayAnimation = 1/displayAnimation = 0/' /rootfs/var/opt/poisontap/target_injected_xhtmljs.html
 
 # ssh keys
 mkdir -p -m 700 /rootfs/root/.ssh
